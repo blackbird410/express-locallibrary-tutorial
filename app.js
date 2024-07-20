@@ -17,8 +17,10 @@ const app = express();
 // Set up rate limiter: maximum of twenty requests per minute
 const limiter = RateLimit({
     windowMs: 1 * 60 * 1000,
-    max: 20,
+    max: 50,
 });
+
+app.use(limiter);
 
 
 // Add express to the middleware  chain
